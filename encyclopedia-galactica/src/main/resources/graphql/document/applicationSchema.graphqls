@@ -1,0 +1,10 @@
+extend type Query {
+    getApplications: [ApplicationOutput!]!,
+    getApplication(id: Int!): ApplicationOutput!
+}
+
+extend type Mutation {
+    addApplication(application: ApplicationInput!):ApplicationOutput!,
+    modifyApplication(application: ApplicationInput!):ApplicationOutput!,
+    deleteApplication(id: Int!):ApplicationOutput!
+}

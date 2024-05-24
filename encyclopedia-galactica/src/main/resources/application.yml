@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: encyclopedia-galactica
+  graphql:
+    graphiql:
+      enabled: on
+      path: /graphiql
