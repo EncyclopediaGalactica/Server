@@ -1,13 +1,11 @@
 package com.andrascsanyi.encyclopediagalactica.document.mappers;
 
-import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
-import com.andrascsanyi.encyclopediagalactica.document.graphql.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.graphql.ApplicationOutput;
+import java.util.List;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
-import java.util.List;
+import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.graphql.output.ApplicationOutput;
 
 @Mapper(componentModel = "spring")
 public interface ApplicationMapper {
@@ -16,7 +14,7 @@ public interface ApplicationMapper {
     @Mapping(source = "name", target = "name")
     @Mapping(source = "description", target = "description")
     @BeanMapping(ignoreByDefault = true)
-    ApplicationEntity toApplicationEntity(ApplicationInput applicationInput);
+    ApplicationEntity toApplicationEntity(ApplicationOutput applicationInput);
     
     @Mapping(source = "id", target = "id")
     @Mapping(source = "name", target = "name")

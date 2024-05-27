@@ -118,6 +118,7 @@
 
     <build>
         <plugins>
+            <!--
             <plugin>
                 <groupId>io.github.kobylynskyi</groupId>
                 <artifactId>graphql-codegen-maven-plugin</artifactId>
@@ -177,7 +178,8 @@
                     </execution>
 
                 </executions>
-            </plugin>
+                </plugin>
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

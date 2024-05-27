@@ -22,34 +22,34 @@ public class AddApplicationInputValidatorTests {
     public static Stream<Arguments> testData() {
         return Stream.of(
             // Id
-            Arguments.of(ApplicationInput.builder().setId("1").setName("name").setDescription("desc").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("name").setDescription("desc").build(), true),
-            Arguments.of(ApplicationInput.builder().setId("").setName("name").setDescription("desc").build(), true),
-            Arguments.of(ApplicationInput.builder().setId(" ").setName("name").setDescription("desc").build(), true),
-            Arguments.of(ApplicationInput.builder().setId("  ").setName("name").setDescription("desc").build(), true),
-            Arguments.of(ApplicationInput.builder().setId(null).setName("name").setDescription("desc").build(), true),
+            Arguments.of(ApplicationOutput.builder().setId("1").setName("name").setDescription("desc").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("name").setDescription("desc").build(), true),
+            Arguments.of(ApplicationOutput.builder().setId("").setName("name").setDescription("desc").build(), true),
+            Arguments.of(ApplicationOutput.builder().setId(" ").setName("name").setDescription("desc").build(), true),
+            Arguments.of(ApplicationOutput.builder().setId("  ").setName("name").setDescription("desc").build(), true),
+            Arguments.of(ApplicationOutput.builder().setId(null).setName("name").setDescription("desc").build(), true),
             // name
-            Arguments.of(ApplicationInput.builder().setId("0").setName(null).setDescription("desc").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("").setDescription("desc").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("a").setDescription("desc").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("ab").setDescription("desc").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName(" ").setDescription("desc").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("  ").setDescription("desc").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription("desc").build(), true),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName(null).setDescription("desc").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("").setDescription("desc").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("a").setDescription("desc").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("ab").setDescription("desc").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName(" ").setDescription("desc").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("  ").setDescription("desc").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription("desc").build(), true),
             // desc
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription(null).build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription("").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription("d").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription("de").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription(" ").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription("  ").build(), false),
-            Arguments.of(ApplicationInput.builder().setId("0").setName("abc").setDescription("desc").build(), true)
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription(null).build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription("").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription("d").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription("de").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription(" ").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription("  ").build(), false),
+            Arguments.of(ApplicationOutput.builder().setId("0").setName("abc").setDescription("desc").build(), true)
         );
     }
     
     @ParameterizedTest
     @MethodSource("testData")
-    public void test(ApplicationInput applicationInput, boolean expectedResult) {
+    public void test(ApplicationOutput applicationInput, boolean expectedResult) {
         
         StringBuilder builder = new StringBuilder("ApplicationInput");
         builder

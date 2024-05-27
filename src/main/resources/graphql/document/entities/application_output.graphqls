@@ -1,5 +1,0 @@
-type ApplicationOutput {
-    id: ID!
-    name: String
-    description: String
-}
