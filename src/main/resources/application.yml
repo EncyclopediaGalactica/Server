@@ -5,3 +5,5 @@ spring:
     graphiql:
       enabled: on
       path: /graphiql
+    schema:
+      file-extensions: .graphqls,.gql,.graphql

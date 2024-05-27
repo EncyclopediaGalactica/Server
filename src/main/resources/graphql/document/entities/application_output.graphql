@@ -1,0 +1,20 @@
+'''
+Application represents a domain of a certain dataset.
+'''
+type ApplicationOutput {
+
+    '''
+    Unique identifier
+    '''
+    id: ID!
+
+    '''
+    The name of the application domain
+    '''
+    name: String
+
+    '''
+    Additional information about the application domain.
+    '''
+    description: String
+}
