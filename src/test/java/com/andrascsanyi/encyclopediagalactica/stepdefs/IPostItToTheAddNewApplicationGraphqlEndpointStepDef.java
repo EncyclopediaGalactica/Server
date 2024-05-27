@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.stepdefs;
 
 import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
-import com.andrascsanyi.encyclopediagalactica.document.graphql.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.graphql.output.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.testingtools.ScenarioContext;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.Transpose;

@@ -1,26 +1,30 @@
 package com.andrascsanyi.encyclopediagalactica.document.commands;
 
-import com.andrascsanyi.encyclopediagalactica.common.validator.ValidationException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
 import com.andrascsanyi.encyclopediagalactica.document.graphql.input.ApplicationInput;
 import com.andrascsanyi.encyclopediagalactica.document.graphql.output.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.mappers.ApplicationMapper;
 import com.andrascsanyi.encyclopediagalactica.document.repositories.ApplicationRepository;
 import jakarta.validation.Validation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class AddApplicationCommand {
 
-    @Autowired
-    private ApplicationMapper applicationMapper;
+    private final ApplicationMapper applicationMapper;
+
+    private final ApplicationRepository applicationRepository;
+
+    private final Validation validation;
 
     @Autowired
-    private ApplicationRepository applicationRepository;
-
-    @Autowired
-    private Validation validation;
+    public AddApplicationCommand(ApplicationMapper applicationMapper,
+            ApplicationRepository applicationRepository, Validation validation) {
+        this.applicationMapper = applicationMapper;
+        this.applicationRepository = applicationRepository;
+        this.validation = validation;
+    }
 
     public ApplicationOutput addApplication(ApplicationInput applicationInput)
             throws AddApplicationCommandException {
@@ -34,10 +38,5 @@ public class AddApplicationCommand {
         }
     }
 
-    private void validateInputAndThrow(ApplicationInput applicationInput)
-            throws ValidationException {
-        if (applicationInput == null) {
-            throw new ValidationException("Application input cannot be null");
-        }
-    }
+    private void validateInputAndThrow(ApplicationInput applicationInput) {}
 }
