@@ -1,5 +1,0 @@
-input ApplicationInput {
-    id: ID!
-    name: String!
-    description: String!
-}

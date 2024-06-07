@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.sagas;
 
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.commands.GetAllApplicationsCommand;
-import com.andrascsanyi.encyclopediagalactica.document.graphql.output.ApplicationOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class GetAllApplicationsSaga {
-   
+    
     @Autowired
     private GetAllApplicationsCommand getAllApplicationsCommand;
     

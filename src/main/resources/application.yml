@@ -6,4 +6,5 @@ spring:
       enabled: on
       path: /graphiql
     schema:
-      file-extensions: .graphqls,.gql,.graphql
+      printer:
+        enabled: true

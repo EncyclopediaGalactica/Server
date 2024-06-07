@@ -1,10 +1,12 @@
+union ApplicationResponse = ApplicationOutput | DocumentErrorOutput
+
 extend type Query {
-    getApplications: [ApplicationOutput!]!,
-    getApplication(id: Int!): ApplicationOutput!
+    getApplications: [ApplicationResponse!]!,
+    getApplication(id: Int!): ApplicationResponse!
 }
 
 extend type Mutation {
-    addApplication(application: ApplicationInput!):ApplicationOutput!,
-    modifyApplication(application: ApplicationInput!):ApplicationOutput!,
-    deleteApplication(id: Int!):ApplicationOutput!
+    addApplication(application: ApplicationInput!):ApplicationResponse!,
+    modifyApplication(application: ApplicationInput!):ApplicationResponse!,
+    deleteApplication(id: Int!):ApplicationResponse!
 }

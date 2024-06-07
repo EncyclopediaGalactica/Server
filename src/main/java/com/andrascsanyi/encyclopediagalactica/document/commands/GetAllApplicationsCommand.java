@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.commands;
 
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
-import com.andrascsanyi.encyclopediagalactica.document.graphql.output.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.mappers.ApplicationMapper;
 import com.andrascsanyi.encyclopediagalactica.document.repositories.ApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +12,10 @@ import java.util.List;
 
 @Service
 public class GetAllApplicationsCommand {
-   
+    
     @Autowired
     private ApplicationMapper applicationMapper;
-
+    
     @Autowired
     private ApplicationRepository applicationRepository;
     

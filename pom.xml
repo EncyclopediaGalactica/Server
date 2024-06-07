@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.5</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.andrascsanyi</groupId>
     <artifactId>encyclopedia-galactica</artifactId>
@@ -29,11 +29,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-graphql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.graphql-java</groupId>
-            <artifactId>graphql-java-extended-scalars</artifactId>
-            <version>18.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -119,68 +114,6 @@
 
     <build>
         <plugins>
-            <!--
-            <plugin>
-                <groupId>io.github.kobylynskyi</groupId>
-                <artifactId>graphql-codegen-maven-plugin</artifactId>
-                <version>5.9.0</version>
-                <executions>
-                    <execution>
-                        <id>Document GraphQL Schema Generation</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <outputDir>${project.build.directory}/generated-sources/document</outputDir>
-                            <graphqlSchemas>
-                                <rootDir>${project.basedir}/src/main/resources/graphql/document</rootDir>
-                                <recursive>true</recursive>
-                                <includePattern>.*\.graphqls?</includePattern>
-                            </graphqlSchemas>
-                            <packageName>
-                                com.andrascsanyi.encyclopediagalactica.document.graphql
-                            </packageName>
-                            <generateBuilder>true</generateBuilder>
-                            <generateApis>false</generateApis>
-                            <generatedAnnotation>jakarta.annotation.Generated</generatedAnnotation>
-                            <addGeneratedAnnotation>true</addGeneratedAnnotation>
-                            <modelValidationAnnotation>
-                                @jakarta.validation.constraints.NotNull
-                            </modelValidationAnnotation>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>IAM GraphQL Schema Generation</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <outputDir>${project.build.directory}/generated-sources/iam</outputDir>
-                            <graphqlSchemas>
-                                <rootDir>${project.basedir}/src/main/resources/graphql/iam</rootDir>
-                                <recursive>true</recursive>
-                                <includePattern>.*\.graphqls?</includePattern>
-                            </graphqlSchemas>
-                            <packageName>
-                                com.andrascsanyi.encyclopediagalactica.iam.graphql
-                            </packageName>
-                            <generateBuilder>true</generateBuilder>
-                            <generateApis>false</generateApis>
-                            <generatedAnnotation>
-                                jakarta.annotation.Generated
-                            </generatedAnnotation>
-                            <addGeneratedAnnotation>
-                                true
-                            </addGeneratedAnnotation>
-                            <modelValidationAnnotation>
-                                @jakarta.validation.constraints.NotNull
-                            </modelValidationAnnotation>
-                        </configuration>
-                    </execution>
-
-                </executions>
-                </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -211,16 +144,28 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.4.0</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>target/generate-sources</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.2</version>
-                <configuration>
-                    <properties>
-                        <configurationParameters>
-                            cucumber.junit-platform.naming-strategy=long
-                        </configurationParameters>
-                    </properties>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -235,13 +180,5 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>target/generated-sources/</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-            </resource>
-        </resources>
     </build>
 </project>
