@@ -1,0 +1,17 @@
+mutation ($input: ApplicationInput!) {
+    addApplication(application: $input) {
+        __typename
+
+        ... on ApplicationOutput {
+            id
+            name
+            description
+        }
+
+        ... on DocumentErrorOutput {
+            message
+            errorDetails
+        }
+
+    }
+}

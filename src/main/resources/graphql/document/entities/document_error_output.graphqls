@@ -1,0 +1,15 @@
+"""
+The output of object includes Documen domain operation error details happened in the backed.
+"""
+type DocumentErrorOutput {
+
+    """
+    The message field contains the details of the error.
+    """
+    message: String!
+    
+    """
+    Details of the error.
+    """
+    errorDetails: String!
+}

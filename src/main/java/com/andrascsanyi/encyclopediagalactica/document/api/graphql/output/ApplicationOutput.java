@@ -1,4 +1,4 @@
-package com.andrascsanyi.encyclopediagalactica.document.graphql.input;
+package com.andrascsanyi.encyclopediagalactica.document.api.graphql.output;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -15,19 +15,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ApplicationInput {
-
+public class ApplicationOutput implements ApplicationResponse {
+    
     @NotNull
     @NotEmpty
     @NotBlank
     private String id;
-
+    
     @NotNull
     @NotEmpty
     @NotBlank
     @Size(min = 3, max = 255)
     private String name;
-
+    
     @NotNull
     @NotEmpty
     @NotBlank
