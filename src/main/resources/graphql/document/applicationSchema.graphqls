@@ -6,7 +6,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    addApplication(application: ApplicationInput!):ApplicationOutput!,
-    modifyApplication(application: ApplicationInput!):ApplicationOutput!,
-    deleteApplication(id: Int!):ApplicationOutput!
+    addApplication(application: ApplicationInput!):ApplicationResponse!,
+    modifyApplication(application: ApplicationInput!):ApplicationResponse!,
+    deleteApplication(id: Int!):ApplicationResponse!
 }
