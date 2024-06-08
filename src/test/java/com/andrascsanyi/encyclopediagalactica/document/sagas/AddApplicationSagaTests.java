@@ -2,6 +2,7 @@ package com.andrascsanyi.encyclopediagalactica.document.sagas;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationListOutput;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationResponse;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.DocumentErrorOutput;
@@ -37,14 +38,17 @@ public class AddApplicationSagaTests extends EncyclopediaGalacticaApplicationBas
     public void createApplication() {
         
         ApplicationInput input = ApplicationInput.builder().name("name").description("description").build();
-        ApplicationResponse r = addApplicationSaga.execute(input);
-        assertThat(r).isInstanceOf(ApplicationOutput.class);
+        ApplicationResponse res = addApplicationSaga.execute(input);
+        assertThat(res).isInstanceOf(ApplicationOutput.class);
         
-        List<ApplicationOutput> result = getAllApplicationsSaga.execute();
+        ApplicationResponse result = getAllApplicationsSaga.execute();
         
-        assertThat(result.size()).isEqualTo(1);
-        assertThat(result.get(0).getId()).isNotEqualTo("0");
-        assertThat(result.get(0).getName()).isEqualTo(input.getName());
-        assertThat(result.get(0).getDescription()).isEqualTo(input.getDescription());
+        assertThat(result).isInstanceOf(ApplicationListOutput.class);
+        ApplicationListOutput r = (ApplicationListOutput) result;
+        assertThat(r.getApplicationList()).isNotEmpty();
+        assertThat(r.getApplicationList().size()).isEqualTo(1);
+        assertThat(r.getApplicationList().get(0).getId()).isNotEqualTo("0");
+        assertThat(r.getApplicationList().get(0).getName()).isEqualTo(input.getName());
+        assertThat(r.getApplicationList().get(0).getDescription()).isEqualTo(input.getDescription());
     }
 }

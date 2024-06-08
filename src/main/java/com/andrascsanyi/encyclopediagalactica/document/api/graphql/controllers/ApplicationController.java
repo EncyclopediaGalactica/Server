@@ -34,7 +34,7 @@ public class ApplicationController {
     }
     
     @QueryMapping("getApplications")
-    public List<ApplicationOutput> getApplications() {
+    public ApplicationResponse getApplications() {
         return getAllApplicationsSaga.execute();
     }
 }

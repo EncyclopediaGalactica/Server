@@ -1,0 +1,10 @@
+"""
+Custom wrapper type to be able to make a union type to manage possible errors.
+"""
+type ApplicationListOutput {
+
+    """
+    Items of result.
+    """
+    applicationList: [ApplicationOutput!]!
+}
