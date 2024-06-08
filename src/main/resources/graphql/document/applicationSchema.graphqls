@@ -1,7 +1,7 @@
-union ApplicationResponse = ApplicationOutput | DocumentErrorOutput
+union ApplicationResponse = ApplicationOutput | ApplicationListOutput | DocumentErrorOutput
 
 extend type Query {
-    getApplications: [ApplicationResponse!]!,
+    getApplications: ApplicationResponse!,
     getApplication(id: Int!): ApplicationResponse!
 }
 
