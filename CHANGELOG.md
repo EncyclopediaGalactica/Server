@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/EncyclopediaGalactica/Server/compare/0.1.1...0.2.0) (2024-06-08)
+
+
+### Features
+
+* introducing error as data [#3](https://github.com/EncyclopediaGalactica/Server/issues/3) ([7565d30](https://github.com/EncyclopediaGalactica/Server/commit/7565d30f3ca1d67a58bf8649b1f480c96dc0f0fe))
+
 ## [0.1.1](https://github.com/EncyclopediaGalactica/Server/compare/0.1.0...0.1.1) (2024-06-07)
 
 
