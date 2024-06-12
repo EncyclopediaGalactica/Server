@@ -1,0 +1,18 @@
+query {
+    getApplications {
+        __typename 
+        ... on ApplicationListOutput 
+        {
+            applicationList
+            {
+                id
+                name
+                description
+            }
+        }
+         ... on DocumentErrorOutput {
+            message
+            errorDetails
+        }
+    }
+}

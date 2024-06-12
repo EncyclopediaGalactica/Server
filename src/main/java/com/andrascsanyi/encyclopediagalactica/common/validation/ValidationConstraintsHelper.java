@@ -1,6 +1,6 @@
 package com.andrascsanyi.encyclopediagalactica.common.validation;
 
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
 import jakarta.validation.ConstraintViolation;
 
 import java.util.Set;

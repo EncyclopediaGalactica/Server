@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.andrascsanyi</groupId>
     <artifactId>encyclopedia-galactica</artifactId>
@@ -72,6 +72,8 @@
             <version>1.5.5.Final</version>
         </dependency>
 
+        <!-- Test -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -125,20 +127,44 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>io.github.kobylynskyi</groupId>
+                <artifactId>graphql-codegen-maven-plugin</artifactId>
+                <version>5.10.0</version>
+                <executions>
+                    <execution>
+                        <id>document-schema-generation</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <graphqlSchemas>
+                                <rootDir>${project.basedir}/src/main/resources/graphql/document/</rootDir>
+                                <includePattern>.*\.graphqls?</includePattern>
+                                <recursive>true</recursive>
+                            </graphqlSchemas>
+                            <outputDir>${project.build.directory}/generated-sources/graphql/document</outputDir>
+                            <configurationFiles>${project.basedir}/gqlSchemaConfigs/document.json</configurationFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>3.4.0</version>
                 <executions>
                     <execution>
-                        <id>add-source</id>
+                        <id>add-document-schema-source-folder</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>add-source</goal>
                         </goals>
                         <configuration>
                             <sources>
-                                <source>target/generate-sources</source>
+                                <source>${project.build.directory}/generate-sources/graphql/document/</source>
                             </sources>
                         </configuration>
                     </execution>

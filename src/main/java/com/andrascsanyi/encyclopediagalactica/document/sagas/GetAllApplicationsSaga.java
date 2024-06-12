@@ -1,9 +1,9 @@
 package com.andrascsanyi.encyclopediagalactica.document.sagas;
 
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationListOutput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationResponse;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.DocumentErrorOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationListOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.DocumentErrorOutput;
 import com.andrascsanyi.encyclopediagalactica.document.commands.GetAllApplicationsCommand;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +19,14 @@ public class GetAllApplicationsSaga {
     public ApplicationResponse execute() {
         try {
             List<ApplicationOutput> applications = getAllApplicationsCommand.getAllApplications();
-            return ApplicationListOutput.builder().applicationList(applications).build();
+            return ApplicationListOutput.builder().setApplicationList(applications).build();
         } catch (Exception e) {
             StringBuilder b = new StringBuilder();
             b.append("Error happened while executing ").append(GetAllApplicationsCommand.class);
 
             return DocumentErrorOutput.builder()
-                    .message(b.toString())
-                    .errorDetails(e.toString())
+                    .setMessage(b.toString())
+                    .setErrorDetails(e.toString())
                     .build();
         }
     }

@@ -1,6 +1,6 @@
 package com.andrascsanyi.encyclopediagalactica.document.commands;
 
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
 import com.andrascsanyi.encyclopediagalactica.document.mappers.ApplicationMapper;
 import com.andrascsanyi.encyclopediagalactica.document.repositories.ApplicationRepository;

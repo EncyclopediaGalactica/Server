@@ -1,8 +1,8 @@
 package com.andrascsanyi.encyclopediagalactica.document.sagas;
 
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationResponse;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.DocumentErrorOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.DocumentErrorOutput;
 import com.andrascsanyi.encyclopediagalactica.document.commands.AddApplicationCommand;
 
 import org.slf4j.Logger;
@@ -27,8 +27,8 @@ public class AddApplicationSaga {
                     .append(AddApplicationSaga.class.getSimpleName());
 
             return DocumentErrorOutput.builder()
-                    .message(builder.toString())
-                    .errorDetails(e.toString())
+                    .setMessage(builder.toString())
+                    .setErrorDetails(e.toString())
                     .build();
         }
     }

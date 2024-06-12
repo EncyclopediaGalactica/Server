@@ -1,10 +1,9 @@
 package com.andrascsanyi.encyclopediagalactica.document.api.graphql.controllers;
 
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationResponse;
 import com.andrascsanyi.encyclopediagalactica.document.sagas.AddApplicationSaga;
 import com.andrascsanyi.encyclopediagalactica.document.sagas.GetAllApplicationsSaga;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

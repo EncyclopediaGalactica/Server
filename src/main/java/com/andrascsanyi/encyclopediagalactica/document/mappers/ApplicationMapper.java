@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.mappers;
 
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
