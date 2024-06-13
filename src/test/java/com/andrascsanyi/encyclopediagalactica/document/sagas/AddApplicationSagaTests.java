@@ -3,6 +3,7 @@ package com.andrascsanyi.encyclopediagalactica.document.sagas;
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationListOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationListResponse;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.DocumentErrorOutput;
@@ -13,39 +14,38 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class AddApplicationSagaTests extends EncyclopediaGalacticaApplicationBaseTest {
-
+    
     @Autowired
     private AddApplicationSaga addApplicationSaga;
-
+    
     @Autowired
     private GetAllApplicationsSaga getAllApplicationsSaga;
-
+    
     @ParameterizedTest
     @ArgumentsSource(AddApplicationScenarioInputValidationData.class)
     public void inputValidation(ApplicationInput input) {
-
+        
         ApplicationResponse response = addApplicationSaga.execute(input);
         assertThat(response).isInstanceOf(DocumentErrorOutput.class);
     }
-
+    
     @Test
     public void createApplication() {
-
+        
         ApplicationInput input = ApplicationInput.builder()
-                .setName("name")
-                .setDescription("description")
-                .build();
+            .setId("0")
+            .setName("name")
+            .setDescription("description")
+            .build();
         ApplicationResponse res = addApplicationSaga.execute(input);
         assertThat(res).isInstanceOf(ApplicationOutput.class);
-
-        ApplicationResponse result = getAllApplicationsSaga.execute();
-
+        
+        ApplicationListResponse result = getAllApplicationsSaga.execute();
+        
         assertThat(result).isInstanceOf(ApplicationListOutput.class);
         ApplicationListOutput r = (ApplicationListOutput) result;
         assertThat(r.getApplicationList()).isNotEmpty();

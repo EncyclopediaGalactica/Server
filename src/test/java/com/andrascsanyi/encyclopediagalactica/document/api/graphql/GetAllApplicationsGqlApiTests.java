@@ -10,7 +10,7 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
-public class GetAllApplicationsTests extends EncyclopediaGalacticaApplicationBaseTest {
+public class GetAllApplicationsGqlApiTests extends EncyclopediaGalacticaApplicationBaseTest {
     
     @Autowired
     private HttpGraphQlTester tester;
@@ -21,10 +21,10 @@ public class GetAllApplicationsTests extends EncyclopediaGalacticaApplicationBas
         tester.documentName("document/getApplications")
             .execute()
             .path("data.getApplications")
-            .entity(ApplicationResponse.class)
+            .entity(ApplicationListResponse.class)
             .satisfies(
                 result -> {
-                    assertThat(result).isInstanceOf(ApplicationResponse.class);
+                    assertThat(result).isInstanceOf(ApplicationListResponse.class);
                     ApplicationListOutput r = (ApplicationListOutput) result;
                     assertThat(r.getApplicationList()).isEmpty();
                 });
@@ -55,10 +55,10 @@ public class GetAllApplicationsTests extends EncyclopediaGalacticaApplicationBas
         tester.documentName("document/getApplications")
             .execute()
             .path("data.getApplications")
-            .entity(ApplicationResponse.class)
+            .entity(ApplicationListResponse.class)
             .satisfies(
                 result -> {
-                    assertThat(result).isInstanceOf(ApplicationResponse.class);
+                    assertThat(result).isInstanceOf(ApplicationListResponse.class);
                     ApplicationListOutput r = (ApplicationListOutput) result;
                     assertThat(r.getApplicationList().size()).isEqualTo(2);
                 });

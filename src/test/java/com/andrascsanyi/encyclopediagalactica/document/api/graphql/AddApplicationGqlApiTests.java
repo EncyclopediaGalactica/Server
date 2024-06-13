@@ -1,9 +1,6 @@
 package com.andrascsanyi.encyclopediagalactica.document.api.graphql;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
 import com.andrascsanyi.encyclopediagalactica.document.testdata.AddApplicationScenarioInputValidationData;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,7 +12,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
-public class AddApplicationTests extends EncyclopediaGalacticaApplicationBaseTest {
+public class AddApplicationGqlApiTests extends EncyclopediaGalacticaApplicationBaseTest {
     
     @Autowired
     private HttpGraphQlTester graphQlTester;

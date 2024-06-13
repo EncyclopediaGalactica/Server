@@ -1,8 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.commands;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
@@ -22,24 +21,24 @@ public class GetAllApplicationCommandTests extends EncyclopediaGalacticaApplicat
     
     @Test
     public void testWhenTheDatabaseIsEmpty() throws GetAllApplicationsCommandException {
-        List<ApplicationOutput> result = getAllApplicationsCommand.getAllApplications();
+        List<ApplicationEntity> result = getAllApplicationsCommand.getAllApplications();
         
         assertThat(result).isEmpty();
     }
     
     @Test
     public void testWhenOnlyASingleItemInTheDatabase() throws AddApplicationCommandException, GetAllApplicationsCommandException {
-        ApplicationInput input = ApplicationInput.builder()
-            .setId("0")
-            .setName("name")
-            .setDescription("description")
+        ApplicationEntity input = ApplicationEntity.builder()
+            .id(0L)
+            .name("name")
+            .description("description")
             .build();
         addApplicationCommand.addApplication(input);
         
-        List<ApplicationOutput> resultList = getAllApplicationsCommand.getAllApplications();
+        List<ApplicationEntity> resultList = getAllApplicationsCommand.getAllApplications();
         
         assertThat(resultList.size()).isEqualTo(1);
-        assertThat(resultList.get(0).getId()).isGreaterThanOrEqualTo("1").isNotEqualTo("0");
+        assertThat(resultList.get(0).getId()).isGreaterThanOrEqualTo(1L).isNotEqualTo(0);
         assertThat(resultList.get(0).getName()).isEqualTo(input.getName());
         assertThat(resultList.get(0).getDescription()).isEqualTo(input.getDescription());
     }
@@ -47,16 +46,15 @@ public class GetAllApplicationCommandTests extends EncyclopediaGalacticaApplicat
     @Test
     public void testWhenMultipleItemsInTheDatabase() throws AddApplicationCommandException, GetAllApplicationsCommandException {
         for (int i = 0; i < 2; i++) {
-            ApplicationInput input = ApplicationInput.builder()
-                .setId("0")
-                .setName("name" + i)
-                .setDescription("description" + i)
+            ApplicationEntity input = ApplicationEntity.builder()
+                .id(0L)
+                .name("name" + i)
+                .description("description" + i)
                 .build();
             addApplicationCommand.addApplication(input);
         }
         
-        List<ApplicationOutput> resultList = getAllApplicationsCommand.getAllApplications();
-        
+        List<ApplicationEntity> resultList = getAllApplicationsCommand.getAllApplications();
         
         assertThat(resultList.size()).isEqualTo(2);
     }

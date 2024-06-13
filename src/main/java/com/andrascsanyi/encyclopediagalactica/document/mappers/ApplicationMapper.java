@@ -1,6 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.mappers;
 
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationListOutputItem;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
 import com.andrascsanyi.encyclopediagalactica.document.entities.ApplicationEntity;
 import org.mapstruct.BeanMapping;
@@ -24,6 +25,18 @@ public interface ApplicationMapper {
     @Mapping(source = "description", target = "description")
     @BeanMapping(ignoreByDefault = true)
     ApplicationOutput toApplicationOutput(ApplicationEntity applicationEntity);
+    
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "name", target = "name")
+    @Mapping(source = "description", target = "description")
+    @BeanMapping(ignoreByDefault = true)
+    ApplicationListOutputItem toApplicationListOutputItem(ApplicationEntity applicationEntity);
+    
+    default List<ApplicationListOutputItem> toApplicationListOutputItems(
+        List<ApplicationEntity> applicationEntities
+    ) {
+        return applicationEntities.stream().map(this::toApplicationListOutputItem).toList();
+    }
     
     default List<ApplicationOutput> toApplicationOutputList(List<ApplicationEntity> result) {
         return result.stream().map(this::toApplicationOutput).toList();
