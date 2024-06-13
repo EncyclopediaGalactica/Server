@@ -1,6 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.common;
 
-import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotEmtpy;
+import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotEmpty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,6 +15,6 @@ import lombok.Setter;
 @Builder
 public class TrimmedNotEmptyEntity {
     
-    @TrimmedNotEmtpy
+    @TrimmedNotEmpty
     private String id;
 }

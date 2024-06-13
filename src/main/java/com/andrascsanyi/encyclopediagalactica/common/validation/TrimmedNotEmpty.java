@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = TrimmedNotEmptyValidator.class)
 @Documented
-public @interface TrimmedNotEmtpy {
+public @interface TrimmedNotEmpty {
     
     String message() default "{javax.validation.constraints.NotEmpty.message=" +
         "When the provided string -{value}- is trimmed it must not be empty}";

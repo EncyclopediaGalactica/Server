@@ -1,8 +1,8 @@
 package com.andrascsanyi.encyclopediagalactica.document.commands;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
@@ -30,8 +30,9 @@ public class GetAllApplicationCommandTests extends EncyclopediaGalacticaApplicat
     @Test
     public void testWhenOnlyASingleItemInTheDatabase() throws AddApplicationCommandException, GetAllApplicationsCommandException {
         ApplicationInput input = ApplicationInput.builder()
-            .name("name")
-            .description("description")
+            .setId("0")
+            .setName("name")
+            .setDescription("description")
             .build();
         addApplicationCommand.addApplication(input);
         
@@ -47,13 +48,15 @@ public class GetAllApplicationCommandTests extends EncyclopediaGalacticaApplicat
     public void testWhenMultipleItemsInTheDatabase() throws AddApplicationCommandException, GetAllApplicationsCommandException {
         for (int i = 0; i < 2; i++) {
             ApplicationInput input = ApplicationInput.builder()
-                .name("name" + i)
-                .description("description" + i)
+                .setId("0")
+                .setName("name" + i)
+                .setDescription("description" + i)
                 .build();
             addApplicationCommand.addApplication(input);
         }
         
         List<ApplicationOutput> resultList = getAllApplicationsCommand.getAllApplications();
+        
         
         assertThat(resultList.size()).isEqualTo(2);
     }

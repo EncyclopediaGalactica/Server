@@ -1,9 +1,9 @@
 package com.andrascsanyi.encyclopediagalactica.document.api.graphql;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
 import com.andrascsanyi.encyclopediagalactica.document.testdata.AddApplicationScenarioInputValidationData;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,9 +24,9 @@ public class AddApplicationTests extends EncyclopediaGalacticaApplicationBaseTes
     public void addEntity() {
         
         ApplicationInput input = ApplicationInput.builder()
-            .id("0")
-            .name("test")
-            .description("test")
+            .setId("0")
+            .setName("test")
+            .setDescription("test")
             .build();
         
         graphQlTester.documentName("document/addApplication")

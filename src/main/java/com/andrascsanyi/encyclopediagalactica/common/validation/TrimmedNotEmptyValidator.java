@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 public class TrimmedNotEmptyValidator
-    implements ConstraintValidator<TrimmedNotEmtpy, String> {
+    implements ConstraintValidator<TrimmedNotEmpty, String> {
     
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
@@ -20,7 +20,7 @@ public class TrimmedNotEmptyValidator
     }
     
     @Override
-    public void initialize(TrimmedNotEmtpy constraintAnnotation) {
+    public void initialize(TrimmedNotEmpty constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 }

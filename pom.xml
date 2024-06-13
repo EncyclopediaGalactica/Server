@@ -135,17 +135,22 @@
                 <executions>
                     <execution>
                         <id>document-schema-generation</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
                             <graphqlSchemas>
-                                <rootDir>${project.basedir}/src/main/resources/graphql/document/</rootDir>
+                                <rootDir>${project.basedir}/src/main/resources/graphql/document</rootDir>
                                 <includePattern>.*\.graphqls?</includePattern>
                                 <recursive>true</recursive>
                             </graphqlSchemas>
-                            <outputDir>${project.build.directory}/generated-sources/graphql/document</outputDir>
-                            <configurationFiles>${project.basedir}/gqlSchemaConfigs/document.json</configurationFiles>
+                            <outputDir>
+                                ${project.build.directory}/generated-sources/graphql/document
+                            </outputDir>
+                            <configurationFiles>
+                                ${project.basedir}/schemaConfigs/gql/document.json
+                            </configurationFiles>
                         </configuration>
                     </execution>
                 </executions>
@@ -164,7 +169,9 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.build.directory}/generate-sources/graphql/document/</source>
+                                <source>
+                                    ${project.build.directory}/generate-sources/graphql/document/
+                                </source>
                             </sources>
                         </configuration>
                     </execution>

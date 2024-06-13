@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.validation;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,30 +24,26 @@ public class AddApplicationScenarioValidationTests extends EncyclopediaGalactica
     public static Stream<Arguments> testData() {
         return Stream.of(
             // id
-            Arguments.of(ApplicationInput.builder().id(null).name("asd").description("asd").build(), 0),
-            Arguments.of(ApplicationInput.builder().id("").name("asd").description("asd").build(), 0),
-            Arguments.of(ApplicationInput.builder().id(" ").name("asd").description("asd").build(), 0),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("asd").build(), 0),
-            Arguments.of(ApplicationInput.builder().id("1").name("asd").description("asd").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("").setName("asd").setDescription("asd").build(), 0),
+            Arguments.of(ApplicationInput.builder().setId(" ").setName("asd").setDescription("asd").build(), 0),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("asd").build(), 0),
+            Arguments.of(ApplicationInput.builder().setId("1").setName("asd").setDescription("asd").build(), 1),
             // name
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("asd").build(), 0),
-            Arguments.of(ApplicationInput.builder().id("0").name(null).description("asd").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("").description("asd").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("a").description("asd").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("as").description("asd").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("as ").description("asd").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name(" as").description("asd").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("   ").description("asd").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("asd").build(), 0),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("").setDescription("asd").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("a").setDescription("asd").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("as").setDescription("asd").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("as ").setDescription("asd").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName(" as").setDescription("asd").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("   ").setDescription("asd").build(), 1),
             // description
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("asd").build(), 0),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description(null).build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("a").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("as").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("as ").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description(" as").build(), 1),
-            Arguments.of(ApplicationInput.builder().id("0").name("asd").description("   ").build(), 1)
-        );
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("asd").build(), 0),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("a").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("as").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("as ").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription(" as").build(), 1),
+            Arguments.of(ApplicationInput.builder().setId("0").setName("asd").setDescription("   ").build(), 1));
     }
     
     @ParameterizedTest

@@ -3,10 +3,10 @@ package com.andrascsanyi.encyclopediagalactica.document.sagas;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.input.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationListOutput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationOutput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.output.ApplicationResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationListOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +15,11 @@ import org.springframework.test.annotation.DirtiesContext;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class GetAllApplicationsSagaTests extends EncyclopediaGalacticaApplicationBaseTest {
 
-    @Autowired private GetAllApplicationsSaga getAllApplicationsSaga;
+    @Autowired
+    private GetAllApplicationsSaga getAllApplicationsSaga;
 
-    @Autowired private AddApplicationSaga addApplicationSaga;
+    @Autowired
+    private AddApplicationSaga addApplicationSaga;
 
     @Test
     public void testWhenTheDatabaseIsEmpty() {
@@ -29,8 +31,10 @@ public class GetAllApplicationsSagaTests extends EncyclopediaGalacticaApplicatio
 
     @Test
     public void testWhenThereIsOnlyOneItemInTheDatabase() {
-        ApplicationInput input =
-                ApplicationInput.builder().name("name").description("description").build();
+        ApplicationInput input = ApplicationInput.builder()
+                .setName("name")
+                .setDescription("description")
+                .build();
         ApplicationResponse recordingResult = addApplicationSaga.execute(input);
         assertThat(recordingResult).isInstanceOf(ApplicationOutput.class);
 
@@ -50,11 +54,10 @@ public class GetAllApplicationsSagaTests extends EncyclopediaGalacticaApplicatio
     @Test
     public void testWhenThereAreMultipleItemsIntTheDatabase() {
         for (int i = 0; i < 2; i++) {
-            ApplicationInput input =
-                    ApplicationInput.builder()
-                            .name("name" + i)
-                            .description("description" + i)
-                            .build();
+            ApplicationInput input = ApplicationInput.builder()
+                    .setName("name" + i)
+                    .setDescription("description" + i)
+                    .build();
             ApplicationResponse recordingResult = addApplicationSaga.execute(input);
             assertThat(recordingResult).isInstanceOf(ApplicationOutput.class);
         }
