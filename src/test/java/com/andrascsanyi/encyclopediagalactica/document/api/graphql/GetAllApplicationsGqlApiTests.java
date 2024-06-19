@@ -1,6 +1,11 @@
 package com.andrascsanyi.encyclopediagalactica.document.api.graphql;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationListOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationListResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationOutput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.test.tester.HttpGraphQlTester;

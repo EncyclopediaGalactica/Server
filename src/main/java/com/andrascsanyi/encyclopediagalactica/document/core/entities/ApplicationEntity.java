@@ -1,0 +1,66 @@
+package com.andrascsanyi.encyclopediagalactica.document.core.entities;
+
+import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotBlank;
+import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotEmpty;
+import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedSize;
+import com.andrascsanyi.encyclopediagalactica.document.core.validation.AddApplicationEntityScenario;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * The {@link ApplicationEntity} defines a domain within the Encyclopedia Galactica system.
+ * <p>
+ * A usage domain describes a set of usage like:
+ *
+ * <ul>
+ * <li>Starmap</li>
+ * <li>Finance</li>
+ * </ul>
+ */
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "application")
+public class ApplicationEntity {
+    
+    /**
+     * The unique identifier of the entity.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+    
+    /**
+     * The name of the domain.
+     */
+    @Column(name = "name")
+    @NotNull
+    @TrimmedNotBlank(groups = AddApplicationEntityScenario.class)
+    @TrimmedNotEmpty(groups = AddApplicationEntityScenario.class)
+    @TrimmedSize(min = 1, max = 255, groups = AddApplicationEntityScenario.class)
+    private String name;
+    
+    /**
+     * The description of the domain.
+     */
+    @Column(name = "description")
+    @NotNull
+    @TrimmedNotBlank(groups = AddApplicationEntityScenario.class)
+    @TrimmedNotEmpty(groups = AddApplicationEntityScenario.class)
+    @TrimmedSize(min = 1, max = 255, groups = AddApplicationEntityScenario.class)
+    private String description;
+}

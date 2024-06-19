@@ -1,10 +1,10 @@
 package com.andrascsanyi.encyclopediagalactica.document.api.graphql.controllers;
 
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationListResponse;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.ApplicationResponse;
-import com.andrascsanyi.encyclopediagalactica.document.sagas.AddApplicationSaga;
-import com.andrascsanyi.encyclopediagalactica.document.sagas.GetAllApplicationsSaga;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationInput;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationListResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationResponse;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.sagas.AddApplicationSaga;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.sagas.GetAllApplicationsSaga;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
