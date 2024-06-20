@@ -7,7 +7,7 @@ import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.Docu
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.mappers.ApplicationMapper;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario;
 import com.andrascsanyi.encyclopediagalactica.document.core.commands.AddApplicationCommand;
-import com.andrascsanyi.encyclopediagalactica.document.core.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
@@ -30,8 +30,8 @@ public class AddApplicationSaga {
     public ApplicationResponse execute(ApplicationInput input) {
         try {
             validateInput(input);
-            ApplicationEntity applicationEntity = applicationMapper.toApplicationEntity(input);
-            ApplicationEntity result = addApplicationCommand.addApplication(applicationEntity);
+            Application applicationEntity = applicationMapper.toApplicationEntity(input);
+            Application result = addApplicationCommand.addApplication(applicationEntity);
             return applicationMapper.toApplicationOutput(result);
         } catch (Exception e) {
             

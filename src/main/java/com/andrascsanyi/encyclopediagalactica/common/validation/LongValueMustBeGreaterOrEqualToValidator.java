@@ -3,6 +3,8 @@ package com.andrascsanyi.encyclopediagalactica.common.validation;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
+import static com.andrascsanyi.encyclopediagalactica.common.validation.ValidationHelpers.getPackageAndAnnotationName;
+
 public class LongValueMustBeGreaterOrEqualToValidator
     implements ConstraintValidator<LongValueMustBeGreaterOrEqualTo, Long> {
     
@@ -16,9 +18,19 @@ public class LongValueMustBeGreaterOrEqualToValidator
     @Override
     public boolean isValid(Long value, ConstraintValidatorContext context) {
         if (value < mustBeGreaterToEqualToValue) {
+            StringBuilder builder = new StringBuilder();
+            builder
+                .append("{")
+                .append(getPackageAndAnnotationName(LongValueMustBeGreaterOrEqualTo.class))
+                .append(".")
+                .append("message=")
+                .append("The provided long value ")
+                .append(value)
+                .append(" must be greater than or equal to ")
+                .append(mustBeGreaterToEqualToValue)
+                .append("}");
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(
-                    "The provided value -{value}- must be equal or greater to: " + mustBeGreaterToEqualToValue)
+            context.buildConstraintViolationWithTemplate(builder.toString())
                 .addConstraintViolation();
             return false;
         }

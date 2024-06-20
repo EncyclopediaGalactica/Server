@@ -2,7 +2,7 @@ package com.andrascsanyi.encyclopediagalactica.document.core.scenarios;
 
 import com.andrascsanyi.encyclopediagalactica.common.validation.ValidationConstraintsHelper;
 import com.andrascsanyi.encyclopediagalactica.document.core.commands.AddApplicationCommand;
-import com.andrascsanyi.encyclopediagalactica.document.core.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import com.andrascsanyi.encyclopediagalactica.document.core.validation.AddApplicationEntityScenario;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
@@ -21,7 +21,7 @@ public class AddApplicationScenario {
     private final Validator validator;
     private final Logger log = LoggerFactory.getLogger(AddApplicationScenario.class);
     
-    public ApplicationEntity execute(ApplicationEntity applicationEntity) {
+    public Application execute(Application applicationEntity) {
         
         try {
             validateInput(applicationEntity);
@@ -34,7 +34,7 @@ public class AddApplicationScenario {
         }
     }
     
-    private void validateInput(ApplicationEntity applicationEntity) {
+    private void validateInput(Application applicationEntity) {
         Set<ConstraintViolation<Object>> violations = validator.validate(
             applicationEntity,
             AddApplicationEntityScenario.class);

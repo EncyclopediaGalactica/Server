@@ -12,8 +12,9 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LongValueMustBeEqualOrGreaterToDefaultGroupEntity {
+public class CustomGroupEntity {
     
-    @LongValueMustBeGreaterOrEqualTo(mustBeGreaterOrEqualTo = 1)
+    @LongValueMustBeGreaterOrEqualTo(mustBeGreaterOrEqualTo = 1,
+        groups = {CustomGroup.class})
     private Long value;
 }

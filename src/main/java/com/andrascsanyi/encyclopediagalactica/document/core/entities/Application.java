@@ -1,5 +1,6 @@
 package com.andrascsanyi.encyclopediagalactica.document.core.entities;
 
+import com.andrascsanyi.encyclopediagalactica.common.validation.LongValueMustBe;
 import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotBlank;
 import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotEmpty;
 import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedSize;
@@ -18,7 +19,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * The {@link ApplicationEntity} defines a domain within the Encyclopedia Galactica system.
+ * The {@link Application} defines a domain within the Encyclopedia Galactica system.
  * <p>
  * A usage domain describes a set of usage like:
  *
@@ -34,7 +35,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "application")
-public class ApplicationEntity {
+public class Application {
     
     /**
      * The unique identifier of the entity.
@@ -42,25 +43,26 @@ public class ApplicationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @LongValueMustBe(mustBe = 0L, groups = {AddApplicationEntityScenario.class})
     private Long id;
     
     /**
      * The name of the domain.
      */
     @Column(name = "name")
-    @NotNull
+    @NotNull(message = "Name cannot be null")
     @TrimmedNotBlank(groups = AddApplicationEntityScenario.class)
     @TrimmedNotEmpty(groups = AddApplicationEntityScenario.class)
-    @TrimmedSize(min = 1, max = 255, groups = AddApplicationEntityScenario.class)
+    @TrimmedSize(min = 3, max = 255, groups = AddApplicationEntityScenario.class)
     private String name;
     
     /**
      * The description of the domain.
      */
     @Column(name = "description")
-    @NotNull
+    @NotNull(message = "Description cannot be null.")
     @TrimmedNotBlank(groups = AddApplicationEntityScenario.class)
     @TrimmedNotEmpty(groups = AddApplicationEntityScenario.class)
-    @TrimmedSize(min = 1, max = 255, groups = AddApplicationEntityScenario.class)
+    @TrimmedSize(min = 3, max = 255, groups = AddApplicationEntityScenario.class)
     private String description;
 }

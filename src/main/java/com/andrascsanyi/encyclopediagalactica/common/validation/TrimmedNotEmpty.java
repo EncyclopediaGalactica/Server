@@ -20,8 +20,9 @@ import java.lang.annotation.Target;
 @Documented
 public @interface TrimmedNotEmpty {
     
-    String message() default "{javax.validation.constraints.NotEmpty.message=" +
-        "When the provided string -{value}- is trimmed it must not be empty}";
+    String message() default "{com.andrascsanyi.encyclopediagalactica.common.validation" +
+        ".TrimmedNotEmpty" +
+        ".message=When the provided string is trimmed it must not be empty}";
     
     Class<?>[] groups() default {};
     

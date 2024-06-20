@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.core.commands;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.core.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +25,13 @@ public class AddApplicationCommandTests extends EncyclopediaGalacticaApplication
     @Test
     public void createApplication()
         throws GetAllApplicationsCommandException, AddApplicationCommandException {
-        ApplicationEntity input = ApplicationEntity.builder()
+        Application input = Application.builder()
             .id(0L)
             .name("name")
             .description("desc")
             .build();
         addApplicationCommand.addApplication(input);
-        List<ApplicationEntity> result = getAllApplicationsCommand.getAllApplications().stream().toList();
+        List<Application> result = getAllApplicationsCommand.getAllApplications().stream().toList();
         
         assertThat(result.size()).isEqualTo(1);
         assertThat(result.get(0).getId()).isNotEqualTo(0L);

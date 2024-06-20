@@ -1,4 +1,4 @@
-package com.andrascsanyi.encyclopediagalactica.common;
+package com.andrascsanyi.encyclopediagalactica.common.trimmedsize;
 
 import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedSize;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TrimmedSizeEntity {
+public class DefaultGroupEntity {
     
     @TrimmedSize(min = 3, max = 5)
     private String value;

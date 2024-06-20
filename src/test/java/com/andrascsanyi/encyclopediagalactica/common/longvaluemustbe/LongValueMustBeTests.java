@@ -25,25 +25,25 @@ public class LongValueMustBeTests extends EncyclopediaGalacticaApplicationBaseTe
     
     public static Stream<Arguments> dataDefaultGroup() {
         return Stream.of(
-            Arguments.of(LongValueMustBeDefaultGroupEntity.builder().value(0L).build(), 0),
-            Arguments.of(LongValueMustBeDefaultGroupEntity.builder().value(1L).build(), 1),
-            Arguments.of(LongValueMustBeDefaultGroupEntity.builder().value(-1L).build(), 1)
+            Arguments.of(DefaultGroupEntity.builder().value(0L).build(), 0),
+            Arguments.of(DefaultGroupEntity.builder().value(1L).build(), 1),
+            Arguments.of(DefaultGroupEntity.builder().value(-1L).build(), 1)
         );
     }
     
     public static Stream<Arguments> dataCustomGroup() {
         return Stream.of(
-            Arguments.of(LongValueMustBeCustomGroupEntity.builder().value(0L).build(), 0),
-            Arguments.of(LongValueMustBeCustomGroupEntity.builder().value(1L).build(), 1),
-            Arguments.of(LongValueMustBeCustomGroupEntity.builder().value(-1L).build(), 1)
+            Arguments.of(CustomGroupEntity.builder().value(0L).build(), 0),
+            Arguments.of(CustomGroupEntity.builder().value(1L).build(), 1),
+            Arguments.of(CustomGroupEntity.builder().value(-1L).build(), 1)
         );
     }
     
     
     @ParameterizedTest
     @MethodSource("dataDefaultGroup")
-    public void testDefaultGroup(LongValueMustBeDefaultGroupEntity entity, Integer expectedErrors) {
-        Set<ConstraintViolation<LongValueMustBeDefaultGroupEntity>> constraintViolation = validator.validate(entity);
+    public void testDefaultGroup(DefaultGroupEntity entity, Integer expectedErrors) {
+        Set<ConstraintViolation<DefaultGroupEntity>> constraintViolation = validator.validate(entity);
         
         assertThat(constraintViolation.size())
             .withFailMessage("The provided value is: " + entity.getValue())
@@ -52,10 +52,10 @@ public class LongValueMustBeTests extends EncyclopediaGalacticaApplicationBaseTe
     
     @ParameterizedTest
     @MethodSource("dataCustomGroup")
-    public void testCustomGroup(LongValueMustBeDefaultGroupEntity entity, Integer expectedErrors) {
-        Set<ConstraintViolation<LongValueMustBeDefaultGroupEntity>> constraintViolation = validator.validate(
+    public void testCustomGroup(CustomGroupEntity entity, Integer expectedErrors) {
+        Set<ConstraintViolation<CustomGroupEntity>> constraintViolation = validator.validate(
             entity,
-            LongValueMustBeValidationGroup.class);
+            CustomGroup.class);
         
         assertThat(constraintViolation.size())
             .withFailMessage("The provided value is: " + entity.getValue())

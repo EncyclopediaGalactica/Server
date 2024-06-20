@@ -5,6 +5,8 @@ import jakarta.validation.ConstraintValidatorContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.andrascsanyi.encyclopediagalactica.common.validation.ValidationHelpers.getPackageAndAnnotationName;
+
 public class TrimmedNotBlankValidator
     implements ConstraintValidator<TrimmedNotBlank, String> {
     
@@ -13,21 +15,31 @@ public class TrimmedNotBlankValidator
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         if (value == null) {
+            StringBuilder builder = new StringBuilder();
+            builder.append("{")
+                .append(getPackageAndAnnotationName(TrimmedNotBlank.class))
+                .append(".")
+                .append("message=")
+                .append("The provided string is null. Validation cannot be executed.")
+                .append("}");
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(
-                "{com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotBlank=" +
-                    "The provided value (-{value}-) is null.}"
-            ).addConstraintViolation();
+            context.buildConstraintViolationWithTemplate(builder.toString()).addConstraintViolation();
             return false;
             
         }
         
         if (value.trim().isBlank()) {
+            StringBuilder builder = new StringBuilder();
+            builder.append("{")
+                .append(getPackageAndAnnotationName(TrimmedNotBlank.class))
+                .append(".")
+                .append("message=")
+                .append("When the provided string (")
+                .append(value)
+                .append(") is trimmed, it cannot be blank.")
+                .append("}");
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(
-                "{javax.validation.constraints.NotBlank.message=" +
-                    "When the provided string -{value}- is trimmed it must not be blank.}"
-            ).addConstraintViolation();
+            context.buildConstraintViolationWithTemplate(builder.toString()).addConstraintViolation();
             return false;
         }
         return true;

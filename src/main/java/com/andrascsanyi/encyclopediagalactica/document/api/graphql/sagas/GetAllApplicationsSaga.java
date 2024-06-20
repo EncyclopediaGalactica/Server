@@ -6,7 +6,7 @@ import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.Appl
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.DocumentErrorOutput;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.mappers.ApplicationMapper;
 import com.andrascsanyi.encyclopediagalactica.document.core.commands.GetAllApplicationsCommand;
-import com.andrascsanyi.encyclopediagalactica.document.core.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class GetAllApplicationsSaga {
     
     public ApplicationListResponse execute() {
         try {
-            List<ApplicationEntity> applications = getAllApplicationsCommand.getAllApplications();
+            List<Application> applications = getAllApplicationsCommand.getAllApplications();
             List<ApplicationListOutputItem> applicationListOutputItems = applicationMapper
                 .toApplicationListOutputItems(applications);
             return ApplicationListOutput.builder()

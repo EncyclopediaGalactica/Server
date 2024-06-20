@@ -15,8 +15,8 @@ import java.lang.annotation.Target;
 @Documented
 public @interface TrimmedSize {
     String message() default "{com.andrascsanyi.encyclopediagalactica.common.validation" +
-        ".TrimmedSize.message=" +
-        "When the provided string -{value}- is trimmed it must be longer than and shorter than.}";
+        ".TrimmedSize" +
+        ".message=When the provided string is trimmed it must be longer than and shorter than defined.}";
     
     Class<?>[] groups() default {};
     

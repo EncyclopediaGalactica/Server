@@ -16,8 +16,8 @@ import java.lang.annotation.Target;
 public @interface LongValueMustBeGreaterOrEqualTo {
     long mustBeGreaterOrEqualTo() default Long.MIN_VALUE;
     String message() default "{com.andrascsanyi.encyclopediagalactica.common.validation" +
-        ".TrimmedSize.message=" +
-        "When the provided string -{value}- is trimmed it must be longer than and shorter than.}";
+        ".LongValueMustBeGreaterOrEqualT" +
+        ".message=The provided value must be greater than or equal to the defined one}";
     
     Class<?>[] groups() default {};
     

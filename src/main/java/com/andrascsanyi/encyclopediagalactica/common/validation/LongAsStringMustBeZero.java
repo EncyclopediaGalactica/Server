@@ -23,10 +23,11 @@ import java.lang.annotation.Target;
 @Documented
 public @interface LongAsStringMustBeZero {
     String message() default
-            "{javax.validation.constraints.LongAsStringMustBeZero.message="
-                    + "The Long -{value}- provided as string must be zero!}";
-
+        "{com.andrascsanyi.encyclopediagalactica.common.validation" +
+            ".LongAsStringMustBeZero" +
+            ".message=The provided Long provided as string must be zero!}";
+    
     Class<?>[] groups() default {};
-
+    
     Class<? extends Payload>[] payload() default {};
 }

@@ -1,4 +1,4 @@
-package com.andrascsanyi.encyclopediagalactica.common;
+package com.andrascsanyi.encyclopediagalactica.common.trimmednotblank;
 
 import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotBlank;
 import lombok.AllArgsConstructor;
@@ -12,8 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TrimmedNotBlankEntity {
+public class CustomGroupEntity {
     
-    @TrimmedNotBlank
+    @TrimmedNotBlank(groups = {CustomGroup.class})
     private String id;
 }

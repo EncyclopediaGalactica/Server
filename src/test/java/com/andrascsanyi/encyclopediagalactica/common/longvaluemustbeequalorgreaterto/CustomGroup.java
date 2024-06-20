@@ -1,4 +1,4 @@
 package com.andrascsanyi.encyclopediagalactica.common.longvaluemustbeequalorgreaterto;
 
-public interface LongValueMustBeEqualOrGreaterToCustomGroup {
+public interface CustomGroup {
 }

@@ -26,13 +26,13 @@ public class LongValueMustBeEqualOrGreaterToTests extends EncyclopediaGalacticaA
     public static Stream<Arguments> dataDefaultGroup() {
         return Stream.of(
             Arguments.of(
-                LongValueMustBeEqualOrGreaterToDefaultGroupEntity.builder().value(0L).build(),
+                DefaultGroupEntity.builder().value(0L).build(),
                 1),
             Arguments.of(
-                LongValueMustBeEqualOrGreaterToDefaultGroupEntity.builder().value(1L).build(),
+                DefaultGroupEntity.builder().value(1L).build(),
                 0),
             Arguments.of(
-                LongValueMustBeEqualOrGreaterToDefaultGroupEntity.builder().value(2L).build(),
+                DefaultGroupEntity.builder().value(2L).build(),
                 0)
         );
     }
@@ -40,21 +40,21 @@ public class LongValueMustBeEqualOrGreaterToTests extends EncyclopediaGalacticaA
     public static Stream<Arguments> dataCustomGroup() {
         return Stream.of(
             Arguments.of(
-                LongValueMustBeEqualOrGreaterToCustomGroupEntity.builder().value(0L).build(),
+                CustomGroupEntity.builder().value(0L).build(),
                 1),
             Arguments.of(
-                LongValueMustBeEqualOrGreaterToCustomGroupEntity.builder().value(1L).build(),
+                CustomGroupEntity.builder().value(1L).build(),
                 0),
             Arguments.of(
-                LongValueMustBeEqualOrGreaterToCustomGroupEntity.builder().value(2L).build(),
+                CustomGroupEntity.builder().value(2L).build(),
                 0)
         );
     }
     
     @ParameterizedTest
     @MethodSource("dataDefaultGroup")
-    public void testDefaultGroup(LongValueMustBeEqualOrGreaterToDefaultGroupEntity entity, int expectedGroup) {
-        Set<ConstraintViolation<LongValueMustBeEqualOrGreaterToDefaultGroupEntity>> result = validator.validate(
+    public void testDefaultGroup(DefaultGroupEntity entity, int expectedGroup) {
+        Set<ConstraintViolation<DefaultGroupEntity>> result = validator.validate(
             entity
         );
         
@@ -65,10 +65,10 @@ public class LongValueMustBeEqualOrGreaterToTests extends EncyclopediaGalacticaA
     
     @ParameterizedTest
     @MethodSource("dataCustomGroup")
-    public void testCustomGroup(LongValueMustBeEqualOrGreaterToCustomGroupEntity entity, int expectedGroup) {
-        Set<ConstraintViolation<LongValueMustBeEqualOrGreaterToCustomGroupEntity>> result = validator.validate(
+    public void testCustomGroup(CustomGroupEntity entity, int expectedGroup) {
+        Set<ConstraintViolation<CustomGroupEntity>> result = validator.validate(
             entity,
-            LongValueMustBeEqualOrGreaterToCustomGroup.class
+            CustomGroup.class
         );
         
         assertThat(result.size())

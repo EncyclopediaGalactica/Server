@@ -2,7 +2,7 @@ package com.andrascsanyi.encyclopediagalactica.document.core.scenario;
 
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.core.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import com.andrascsanyi.encyclopediagalactica.document.core.scenarios.AddApplicationScenario;
 import com.andrascsanyi.encyclopediagalactica.document.core.scenarios.AddApplicationScenarioException;
 import com.andrascsanyi.encyclopediagalactica.document.core.testdata.AddApplicationEntityScenarioInputValidationTestData;
@@ -26,7 +26,7 @@ public class AddApplicationScenarioTests extends EncyclopediaGalacticaApplicatio
     @Tag("core")
     @ParameterizedTest
     @ArgumentsSource(AddApplicationEntityScenarioInputValidationTestData.class)
-    public void testValidation(ApplicationEntity applicationEntity) {
+    public void testValidation(Application applicationEntity) {
         assertThatThrownBy(() -> addApplicationScenario.execute(applicationEntity))
             .isInstanceOf(AddApplicationScenarioException.class);
     }
@@ -35,12 +35,12 @@ public class AddApplicationScenarioTests extends EncyclopediaGalacticaApplicatio
     @Tag("core")
     @Test
     public void testAdding() {
-        ApplicationEntity entity = ApplicationEntity.builder()
+        Application entity = Application.builder()
             .id(0L)
             .name("name")
             .description("description").build();
         
-        ApplicationEntity result = addApplicationScenario.execute(entity);
+        Application result = addApplicationScenario.execute(entity);
         
         assertThat(result.getId()).isGreaterThanOrEqualTo(1);
         assertThat(result.getName()).isEqualTo(entity.getName());

@@ -12,8 +12,8 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class LongValueMustBeDefaultGroupEntity {
+public class CustomGroupEntity {
     
-    @LongValueMustBe(mustBe = 0)
+    @LongValueMustBe(mustBe = 0, groups = {CustomGroup.class})
     private Long value;
 }

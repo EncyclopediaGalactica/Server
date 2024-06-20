@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.core.repositories;
 
-import com.andrascsanyi.encyclopediagalactica.document.core.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ApplicationRepository extends CrudRepository<ApplicationEntity, Long> {
+public interface ApplicationRepository extends CrudRepository<Application, Long> {
 }

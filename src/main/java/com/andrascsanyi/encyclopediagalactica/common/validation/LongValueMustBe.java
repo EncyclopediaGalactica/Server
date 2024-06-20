@@ -16,8 +16,8 @@ import java.lang.annotation.Target;
 public @interface LongValueMustBe {
     long mustBe() default 0L;
     String message() default "{com.andrascsanyi.encyclopediagalactica.common.validation" +
-        ".TrimmedSize.message=" +
-        "When the provided string -{value}- is trimmed it must be longer than and shorter than.}";
+        ".LongValueMustBe" +
+        ".message=The provided Long value must be equal to the defined one.}";
     
     Class<?>[] groups() default {};
     

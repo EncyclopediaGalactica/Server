@@ -5,6 +5,8 @@ import jakarta.validation.ConstraintValidatorContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.andrascsanyi.encyclopediagalactica.common.validation.ValidationHelpers.getPackageAndAnnotationName;
+
 public class LongAsStringMustBeZeroValidator
     implements ConstraintValidator<LongAsStringMustBeZero, String> {
     
@@ -27,9 +29,18 @@ public class LongAsStringMustBeZeroValidator
             boolean isValid = longValue == 0;
             
             if (!isValid) {
+                StringBuilder builder = new StringBuilder();
+                builder
+                    .append("{")
+                    .append(getPackageAndAnnotationName(LongAsStringMustBeZero.class))
+                    .append(".")
+                    .append("message=")
+                    .append("When the provided string value: ")
+                    .append(value)
+                    .append(" is converted to Long it must be equal to 0")
+                    .append("}");
                 context.disableDefaultConstraintViolation();
-                context.buildConstraintViolationWithTemplate(
-                        "{javax.validation.constraints.LongAsStringMustBeZero.message}")
+                context.buildConstraintViolationWithTemplate(builder.toString())
                     .addConstraintViolation();
             }
             

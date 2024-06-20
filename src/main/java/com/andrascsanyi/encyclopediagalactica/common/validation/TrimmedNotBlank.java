@@ -21,8 +21,8 @@ import java.lang.annotation.Target;
 public @interface TrimmedNotBlank {
     
     String message() default "{com.andrascsanyi.encyclopediagalactica.common.validation" +
-        ".TrimmedNotBlank.message=" +
-        "When the provided string -{value}- is trimmed it must not be blank.}";
+        ".TrimmedNotBlank" +
+        ".message=When the provided string is trimmed it must not be blank.}";
     
     Class<?>[] groups() default {};
     

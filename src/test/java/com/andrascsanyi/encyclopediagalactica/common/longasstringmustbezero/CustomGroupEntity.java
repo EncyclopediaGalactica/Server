@@ -1,4 +1,4 @@
-package com.andrascsanyi.encyclopediagalactica.common;
+package com.andrascsanyi.encyclopediagalactica.common.longasstringmustbezero;
 
 import com.andrascsanyi.encyclopediagalactica.common.validation.LongAsStringMustBeZero;
 import lombok.AllArgsConstructor;
@@ -12,8 +12,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LongAsStringMustBeZeroEntity {
+public class CustomGroupEntity {
     
-    @LongAsStringMustBeZero
+    @LongAsStringMustBeZero(groups = {CustomGroup.class})
     private String id;
 }

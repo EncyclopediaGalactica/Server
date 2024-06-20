@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.core.scenario;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
-import com.andrascsanyi.encyclopediagalactica.document.core.entities.ApplicationEntity;
+import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import com.andrascsanyi.encyclopediagalactica.document.core.scenarios.AddApplicationScenario;
 import com.andrascsanyi.encyclopediagalactica.document.core.scenarios.GetAllApplicationsScenario;
 import org.junit.jupiter.api.Tag;
@@ -26,7 +26,7 @@ public class GetAllApplicationsScenarioTests extends EncyclopediaGalacticaApplic
     @Tag("core")
     @Test
     public void testWhenTheDatabaseIsEmpty() {
-        List<ApplicationEntity> applicationEntities = getAllApplicationsScenario.execute();
+        List<Application> applicationEntities = getAllApplicationsScenario.execute();
         assertThat(applicationEntities).isEmpty();
     }
     
@@ -34,14 +34,14 @@ public class GetAllApplicationsScenarioTests extends EncyclopediaGalacticaApplic
     @Tag("core")
     @Test
     public void testWhenTheDatabaseHasASingleElement() {
-        ApplicationEntity input = ApplicationEntity.builder()
+        Application input = Application.builder()
             .id(0L)
             .name("name")
             .description("description").build();
         
-        ApplicationEntity result = addApplicationScenario.execute(input);
+        Application result = addApplicationScenario.execute(input);
         
-        List<ApplicationEntity> applicationEntities = getAllApplicationsScenario.execute();
+        List<Application> applicationEntities = getAllApplicationsScenario.execute();
         assertThat(applicationEntities).hasSize(1);
         assertThat(applicationEntities.get(0).getId()).isGreaterThanOrEqualTo(1);
         assertThat(applicationEntities.get(0).getName()).isEqualTo(input.getName());
@@ -53,14 +53,14 @@ public class GetAllApplicationsScenarioTests extends EncyclopediaGalacticaApplic
     @Test
     public void testWhenTheDatabaseHasMultipleElements() {
         for (int i = 0; i < 2; i++) {
-            ApplicationEntity input = ApplicationEntity.builder()
+            Application input = Application.builder()
                 .id(0L)
                 .name("name" + i)
                 .description("description" + i).build();
             
-            ApplicationEntity result = addApplicationScenario.execute(input);
+            Application result = addApplicationScenario.execute(input);
         }
-        List<ApplicationEntity> applicationEntities = getAllApplicationsScenario.execute();
+        List<Application> applicationEntities = getAllApplicationsScenario.execute();
         assertThat(applicationEntities).hasSize(2);
     }
 }
