@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.andrascsanyi</groupId>
     <artifactId>encyclopedia-galactica</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <name>encyclopedia-galactica</name>
     <description>encyclopedia-galactica</description>
     <properties>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok-mapstruct-binding</artifactId>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -129,7 +129,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok-mapstruct-binding</artifactId>
-                            <version>0.2.0</version>
+                            <version>0.3.0</version>
                         </path>
                     </annotationProcessorPaths>
                     <compilerArgs>
