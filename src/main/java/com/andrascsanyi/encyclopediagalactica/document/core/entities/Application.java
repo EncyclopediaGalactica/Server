@@ -1,9 +1,9 @@
 package com.andrascsanyi.encyclopediagalactica.document.core.entities;
 
-import com.andrascsanyi.encyclopediagalactica.common.validation.LongValueMustBe;
-import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotBlank;
-import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotEmpty;
-import com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedSize;
+import com.andrascsanyi.beanvalidatorextensions.LongValueMustBe;
+import com.andrascsanyi.beanvalidatorextensions.TrimmedNotBlank;
+import com.andrascsanyi.beanvalidatorextensions.TrimmedNotEmpty;
+import com.andrascsanyi.beanvalidatorextensions.TrimmedSize;
 import com.andrascsanyi.encyclopediagalactica.document.core.validation.AddApplicationEntityScenario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

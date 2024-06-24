@@ -8,17 +8,17 @@
   "generateJacksonTypeIdResolver": true,
   "customAnnotationsMapping": {
     "ApplicationInput.id": [
-      "com.andrascsanyi.encyclopediagalactica.common.validation.LongAsStringMustBeZero(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario.class})"
+      "com.andrascsanyi.beanvalidatorextensions.LongAsStringMustBeZero(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})"
     ],
     "ApplicationInput.name": [
-      "com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotBlank(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario.class})",
-      "com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotEmpty(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario.class})",
-      "com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedSize(min = 3, max = 255, groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario.class})"
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotBlank(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotEmpty(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedSize(min = 3, max = 255, groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})"
     ],
     "ApplicationInput.description": [
-      "com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotBlank(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario.class})",
-      "com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedNotEmpty(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario.class})",
-      "com.andrascsanyi.encyclopediagalactica.common.validation.TrimmedSize(min = 3, max = 255, groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario.class})"
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotBlank(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotEmpty(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedSize(min = 3, max = 255, groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})"
     ]
   }
 }

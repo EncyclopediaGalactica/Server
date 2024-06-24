@@ -1,11 +1,11 @@
 package com.andrascsanyi.encyclopediagalactica.document.api.graphql.sagas;
 
-import com.andrascsanyi.encyclopediagalactica.common.validation.ValidationConstraintsHelper;
+import com.andrascsanyi.beanvalidatorextensions.ValidationConstraintsHelper;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationInput;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationResponse;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.DocumentErrorOutput;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.mappers.ApplicationMapper;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario;
 import com.andrascsanyi.encyclopediagalactica.document.core.commands.AddApplicationCommand;
 import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import jakarta.validation.ConstraintViolation;

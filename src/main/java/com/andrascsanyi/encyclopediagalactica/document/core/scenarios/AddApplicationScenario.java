@@ -1,6 +1,6 @@
 package com.andrascsanyi.encyclopediagalactica.document.core.scenarios;
 
-import com.andrascsanyi.encyclopediagalactica.common.validation.ValidationConstraintsHelper;
+import com.andrascsanyi.beanvalidatorextensions.ValidationConstraintsHelper;
 import com.andrascsanyi.encyclopediagalactica.document.core.commands.AddApplicationCommand;
 import com.andrascsanyi.encyclopediagalactica.document.core.entities.Application;
 import com.andrascsanyi.encyclopediagalactica.document.core.validation.AddApplicationEntityScenario;

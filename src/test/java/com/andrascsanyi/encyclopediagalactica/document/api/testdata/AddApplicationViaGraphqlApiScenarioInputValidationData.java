@@ -1,7 +1,7 @@
 package com.andrascsanyi.encyclopediagalactica.document.api.testdata;
 
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;

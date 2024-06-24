@@ -2,7 +2,7 @@ package com.andrascsanyi.encyclopediagalactica.document.api.validation;
 
 import com.andrascsanyi.encyclopediagalactica.EncyclopediaGalacticaApplicationBaseTest;
 import com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities.ApplicationInput;
-import com.andrascsanyi.encyclopediagalactica.document.api.graphql.validation.AddApplicationScenario;
+import com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import org.junit.jupiter.params.ParameterizedTest;
