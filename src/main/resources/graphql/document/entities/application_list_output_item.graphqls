@@ -1,0 +1,20 @@
+"""
+The list output entity representing Application entity related operations result.
+"""
+type ApplicationListOutputItem {
+
+    """
+    The unique identifier of the entity.
+    """
+    id: ID!
+
+    """
+    The name of the entity.
+    """
+    name: String
+
+    """
+    The description field is the place to provide further details about the entity.
+    """
+    description: String
+}

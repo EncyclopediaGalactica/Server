@@ -1,0 +1,24 @@
+{
+  "packageName": "com.andrascsanyi.encyclopediagalactica.document.api.graphql.entities",
+  "modelValidationAnnotation": "@jakarta.validation.constraints.NotNull",
+  "apiInterfaceStrategy": "DO_NOT_GENERATE",
+  "addGeneratedAnnotation": true,
+  "generatedAnnotation": "jakarta.annotation.Generated",
+  "generateBuilder": true,
+  "generateJacksonTypeIdResolver": true,
+  "customAnnotationsMapping": {
+    "ApplicationInput.id": [
+      "com.andrascsanyi.beanvalidatorextensions.LongAsStringMustBeZero(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})"
+    ],
+    "ApplicationInput.name": [
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotBlank(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotEmpty(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedSize(min = 3, max = 255, groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})"
+    ],
+    "ApplicationInput.description": [
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotBlank(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedNotEmpty(groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})",
+      "com.andrascsanyi.beanvalidatorextensions.TrimmedSize(min = 3, max = 255, groups = {com.andrascsanyi.encyclopediagalactica.document.api.graphql.scenarios.AddApplicationScenario.class})"
+    ]
+  }
+}

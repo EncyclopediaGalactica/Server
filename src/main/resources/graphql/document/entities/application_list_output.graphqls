@@ -6,5 +6,5 @@ type ApplicationListOutput {
     """
     Items of result.
     """
-    applicationList: [ApplicationOutput!]!
+    applicationList: [ApplicationListOutputItem!]!
 }
