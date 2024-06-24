@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/EncyclopediaGalactica/Server/compare/0.2.0...0.3.0) (2024-06-24)
+
+
+### Features
+
+* introducing graphql code generator [#4](https://github.com/EncyclopediaGalactica/Server/issues/4) ([c6ef0bc](https://github.com/EncyclopediaGalactica/Server/commit/c6ef0bcb12f2d53b9dc425caf949c8fdf52e4a8b))
+
 # [0.2.0](https://github.com/EncyclopediaGalactica/Server/compare/0.1.1...0.2.0) (2024-06-08)
 
 
